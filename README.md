@@ -1,7 +1,7 @@
 # Local Gmail Organizer
 
 This tool reads Gmail metadata locally, sends classification prompts only to a
-local Ollama server, and directly adds the existing `INBOX/NewsLetters` label to
+local Ollama server, and directly adds the existing `INBOX` label to
 matching messages. It does not use OpenAI or any cloud AI service.
 
 ## Setup
