@@ -27,6 +27,7 @@ RULES = {
     "from:hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
     "from:linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
 }
+MARK_READ = {query for query in RULES if "linkedin.com" in query}
 
 
 def service():
@@ -46,7 +47,7 @@ labels = gmail.users().labels().list(userId="me").execute().get("labels", [])
 label_ids = {item["name"].lower(): item["id"] for item in labels}
 filters = gmail.users().settings().filters().list(userId="me").execute().get("filter", [])
 existing = {
-    (item.get("criteria", {}).get("query"), tuple(sorted(item.get("action", {}).get("addLabelIds", []))))
+    (item.get("criteria", {}).get("query"), tuple(sorted(item.get("action", {}).get("addLabelIds", [])))): item
     for item in filters
 }
 
@@ -55,14 +56,28 @@ for query, label_name in RULES.items():
     if not label_id:
         raise SystemExit(f"Missing label: {label_name}")
     key = (query, (label_id,))
+    remove_ids = ["INBOX"] + (["UNREAD"] if query in MARK_READ else [])
     if key in existing:
-        print(f"Already exists: {query} -> {label_name}")
+        filter_item = existing[key]
+        action = filter_item.get("action", {})
+        if sorted(action.get("removeLabelIds", [])) != sorted(remove_ids):
+            gmail.users().settings().filters().delete(userId="me", id=filter_item["id"]).execute()
+            gmail.users().settings().filters().create(
+                userId="me",
+                body={
+                    "criteria": {"query": query},
+                    "action": {"addLabelIds": [label_id], "removeLabelIds": remove_ids},
+                },
+            ).execute()
+            print(f"Updated: {query} -> {label_name}")
+        else:
+            print(f"Already exists: {query} -> {label_name}")
         continue
     gmail.users().settings().filters().create(
         userId="me",
         body={
             "criteria": {"query": query},
-            "action": {"addLabelIds": [label_id], "removeLabelIds": ["INBOX"]},
+            "action": {"addLabelIds": [label_id], "removeLabelIds": remove_ids},
         },
     ).execute()
     print(f"Created: {query} -> {label_name}, archived")

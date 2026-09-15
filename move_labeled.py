@@ -20,6 +20,10 @@ LABELS = [
     "INBOX/NewsLetters/Languages/Duolingo",
     "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
 ]
+MARK_READ_LABELS = {
+    "INBOX/NewsLetters/Jobs/LinkedIn",
+    "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
+}
 
 
 def get_service():
@@ -52,11 +56,15 @@ def main():
         if not actual:
             print(f"Missing label: {label}")
             continue
-        ids = message_ids(gmail, f'label:"{actual}" in:inbox')
+        remove_ids = ["INBOX"]
+        if actual in MARK_READ_LABELS:
+            remove_ids.append("UNREAD")
+        query = f'label:"{actual}"' if actual in MARK_READ_LABELS else f'label:"{actual}" in:inbox'
+        ids = message_ids(gmail, query)
         for start in range(0, len(ids), 1000):
             gmail.users().messages().batchModify(
                 userId="me",
-                body={"ids": ids[start : start + 1000], "removeLabelIds": ["INBOX"]},
+                body={"ids": ids[start : start + 1000], "removeLabelIds": remove_ids},
             ).execute()
         total += len(ids)
         print(f"Archived from Inbox: {len(ids)} | {actual}")
