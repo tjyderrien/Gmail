@@ -31,12 +31,6 @@ ACTIONS = {
     "rules": ("Apply sender rules", ["apply_rules.py"], 600),
     "archive": ("Archive labeled mail", ["move_labeled.py"], 600),
     "filters": ("Create or update Gmail filters", ["create_filters.py"], 600),
-        1800,
-    ),
-        1800,
-    ),
-        1800,
-    ),
     "ai-preview": ("Preview local AI classification", ["organize.py", "--dry-run", "--limit", "20"], 900),
 }
 
@@ -147,17 +141,6 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(encoded)
 
     def do_GET(self):
-        if self.path == "/download":
-            path = next((os.path.join(ROOT, name) for name in GRAPH_FILES if os.path.exists(os.path.join(ROOT, name))), None)
-            if not path:
-                return
-            with open(path, "rb") as graph_file:
-                payload = graph_file.read()
-            self.send_response(200)
-            self.send_header("Content-Length", str(len(payload)))
-            self.end_headers()
-            self.wfile.write(payload)
-            return
         if self.path == "/status":
             with RUN_LOCK:
                 payload = json.dumps(JOB).encode("utf-8")

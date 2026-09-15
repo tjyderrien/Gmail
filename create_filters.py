@@ -27,8 +27,10 @@ RULES = {
     "from:hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
     "from:linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
     "from:researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
+    "from:unison.audio": "INBOX/NewsLetters/Music/Unison Producer",
+    "from:noreply@skool.com \"Unison Producer Growth Hub\"": "INBOX/NewsLetters/Music/Unison Producer",
 }
-MARK_READ = {query for query in RULES if "linkedin.com" in query or "researchgatemail.net" in query}
+MARK_READ = {query for query in RULES if "linkedin.com" in query or "researchgatemail.net" in query or "unison" in query.lower()}
 
 
 def service():

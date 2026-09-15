@@ -23,6 +23,8 @@ RULES = {
     "hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
     "linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
     "researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
+    "unison.audio": "INBOX/NewsLetters/Music/Unison Producer",
+    "query:from:noreply@skool.com \"Unison Producer Growth Hub\"": "INBOX/NewsLetters/Music/Unison Producer",
 }
 
 
@@ -65,7 +67,7 @@ def main():
         label_ids[label_name] = label["id"]
 
     for sender, label_name in RULES.items():
-        query = f"from:{sender}" if not sender.startswith("@") else f"from:{sender[1:]}"
+        query = sender[6:] if sender.startswith("query:") else (f"from:{sender}" if not sender.startswith("@") else f"from:{sender[1:]}")
         ids = all_ids(gmail, query)
         for start in range(0, len(ids), 1000):
             gmail.users().messages().batchModify(
