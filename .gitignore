@@ -3,5 +3,4 @@ token.json
 .venv/
 __pycache__/
 *.log
-*.gexf
 angel-alerts.txt
