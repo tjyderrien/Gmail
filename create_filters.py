@@ -29,6 +29,7 @@ RULES = {
     "from:researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
     "from:unison.audio": "INBOX/NewsLetters/Music/Unison Producer",
     "from:noreply@skool.com \"Unison Producer Growth Hub\"": "INBOX/NewsLetters/Music/Unison Producer",
+    "from:geni.com": "INBOX/NewsLetters/Internet/Geni.com",
 }
 MARK_READ = {query for query in RULES if "linkedin.com" in query or "researchgatemail.net" in query or "unison" in query.lower()}
 

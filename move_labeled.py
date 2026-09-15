@@ -21,12 +21,14 @@ LABELS = [
     "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
     "INBOX/NewsLetters/ResearchGate",
     "INBOX/NewsLetters/Music/Unison Producer",
+    "INBOX/NewsLetters/Internet/Geni.com",
 ]
 MARK_READ_LABELS = {
     "INBOX/NewsLetters/Jobs/LinkedIn",
     "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
     "INBOX/NewsLetters/ResearchGate",
     "INBOX/NewsLetters/Music/Unison Producer",
+    "INBOX/NewsLetters/Internet/Geni.com",
 }
 
 

@@ -25,6 +25,7 @@ RULES = {
     "researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
     "unison.audio": "INBOX/NewsLetters/Music/Unison Producer",
     "query:from:noreply@skool.com \"Unison Producer Growth Hub\"": "INBOX/NewsLetters/Music/Unison Producer",
+    "geni.com": "INBOX/NewsLetters/Internet/Geni.com",
 }
 
 
