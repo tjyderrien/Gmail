@@ -18,6 +18,7 @@ LABELS = [
     "INBOX/NewsLetters/AI/AI Weekly",
     "INBOX/NewsLetters/Security/McAfee",
     "INBOX/NewsLetters/Languages/Duolingo",
+    "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
 ]
 
 

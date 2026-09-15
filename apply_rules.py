@@ -21,6 +21,7 @@ RULES = {
     "alexis@aiweekly.co": "INBOX/NewsLetters/AI/AI Weekly",
     "mcafee@email.mcafee.com": "INBOX/NewsLetters/Security/McAfee",
     "hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
+    "linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
 }
 
 
