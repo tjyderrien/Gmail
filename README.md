@@ -57,3 +57,14 @@ To make the sender rules permanent in Gmail, create native Gmail filters:
 ```bash
 ./.venv/bin/python create_filters.py
 ```
+
+## Browser control panel
+
+Run the local browser app:
+
+```bash
+./.venv/bin/python webapp.py
+```
+
+It binds only to `127.0.0.1:8765` and opens the control panel in the browser.
+The available actions are allowlisted; the panel does not accept shell commands.
