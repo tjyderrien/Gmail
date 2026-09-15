@@ -24,6 +24,7 @@ LABELS = [
 MARK_READ_LABELS = {
     "INBOX/NewsLetters/Jobs/LinkedIn",
     "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
+    "INBOX/NewsLetters/ResearchGate",
 }
 
 

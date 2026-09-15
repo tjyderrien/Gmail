@@ -28,7 +28,7 @@ RULES = {
     "from:linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
     "from:researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
 }
-MARK_READ = {query for query in RULES if "linkedin.com" in query}
+MARK_READ = {query for query in RULES if "linkedin.com" in query or "researchgatemail.net" in query}
 
 
 def service():
