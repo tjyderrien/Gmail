@@ -51,3 +51,9 @@ run:
 ```bash
 ./.venv/bin/python move_labeled.py
 ```
+
+To make the sender rules permanent in Gmail, create native Gmail filters:
+
+```bash
+./.venv/bin/python create_filters.py
+```

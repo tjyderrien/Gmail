@@ -16,6 +16,11 @@ RULES = {
     "jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn",
     "nexera-app.com": "INBOX/NewsLetters/AI",
     "contact@perspectives.ac": "INBOX/NewsLetters/AI",
+    "monthlyreview.org": "INBOX/NewsLetters/NewsPapers/Monthly Reviews",
+    "news@crosshilltraining.com": "INBOX/NewsLetters/Finance/Tom Crosshill",
+    "alexis@aiweekly.co": "INBOX/NewsLetters/AI/AI Weekly",
+    "mcafee@email.mcafee.com": "INBOX/NewsLetters/Security/McAfee",
+    "hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
 }
 
 

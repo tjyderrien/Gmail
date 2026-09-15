@@ -13,6 +13,11 @@ LABELS = [
     "INBOX/NewsLetters/Optica.org",
     "INBOX/NewsLetters/Jobs/LinkedIn",
     "INBOX/NewsLetters/AI",
+    "INBOX/NewsLetters/NewsPapers/Monthly Reviews",
+    "INBOX/NewsLetters/Finance/Tom Crosshill",
+    "INBOX/NewsLetters/AI/AI Weekly",
+    "INBOX/NewsLetters/Security/McAfee",
+    "INBOX/NewsLetters/Languages/Duolingo",
 ]
 
 
