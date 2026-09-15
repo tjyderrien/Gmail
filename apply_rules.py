@@ -22,6 +22,7 @@ RULES = {
     "mcafee@email.mcafee.com": "INBOX/NewsLetters/Security/McAfee",
     "hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
     "linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
+    "researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
 }
 
 

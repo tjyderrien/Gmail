@@ -26,6 +26,7 @@ RULES = {
     "from:mcafee@email.mcafee.com": "INBOX/NewsLetters/Security/McAfee",
     "from:hello@duolingo.com": "INBOX/NewsLetters/Languages/Duolingo",
     "from:linkedin.com -from:jobalerts-noreply@linkedin.com": "INBOX/NewsLetters/Jobs/LinkedIn/Notifications",
+    "from:researchgatemail.net -subject:\"New login attempt\"": "INBOX/NewsLetters/ResearchGate",
 }
 MARK_READ = {query for query in RULES if "linkedin.com" in query}
 
